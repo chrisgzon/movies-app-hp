@@ -3,7 +3,8 @@ body {
     color: #ffffff;
 }
 
-.movie-app > .row, .movie-app > .pagination {
+.movie-app>.row,
+.movie-app>.pagination {
     overflow-x: auto;
     flex-wrap: nowrap;
 }

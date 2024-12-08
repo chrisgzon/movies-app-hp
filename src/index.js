@@ -8,10 +8,13 @@ import {
   RouterProvider,
   Route
 } from 'react-router-dom';
-import Protected from './components/Protected';
-import Signup from './pages/Signup';
-import Login from './pages/Login';
-import Home from './pages/Home';
+import Protected from 'components/Protected';
+import Signup from 'pages/Signup';
+import Login from 'pages/Login';
+import Home from 'pages/Home';
+
+import 'mdb-react-ui-kit/dist/css/mdb.min.css';
+import "@fortawesome/fontawesome-free/css/all.min.css";
 
 const router = createBrowserRouter(
   createRoutesFromElements(

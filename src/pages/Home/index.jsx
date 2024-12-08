@@ -10,9 +10,10 @@ import './Home.css';
 
 const Home = () => {
     const { loading, movies, title, setTitle, year, setYear, type, setType,
-            fetchMovies, fetchMoviesByPage, countResultsTotal, currentPage } = useMovies('cars');
+            fetchMovies, fetchMoviesByPage, countResultsTotal, currentPage, setCurrentPage } = useMovies('cars');
 
     const handleSearchClick = () => {
+        setCurrentPage(1);
         fetchMovies(title, year, type);
     };
 

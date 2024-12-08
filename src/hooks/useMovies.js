@@ -64,7 +64,8 @@ const useMovies = (initialTitleValue) => {
         fetchMovies,
         fetchMoviesByPage,
         loading,
-        currentPage
+        currentPage,
+        setCurrentPage
     };
 };
 

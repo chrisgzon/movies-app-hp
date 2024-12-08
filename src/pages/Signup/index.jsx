@@ -1,32 +1,11 @@
-import { createUserWithEmailAndPassword } from 'firebase/auth';
 import React from 'react'
-import { auth } from '../../firebase';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './Signup.css';
 import { MDBInput } from 'mdb-react-ui-kit';
+import useAuth from 'hooks/useAuth';
 
 const Signup = () => {
-
-  const [email, setEmail] = React.useState('');
-  const [password, setPassword] = React.useState('');
-
-  const navigate = useNavigate();
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      console.log(userCredential);
-      const user = userCredential.user;
-      localStorage.setItem('user', JSON.stringify(user));
-      localStorage.setItem('token', JSON.stringify(user.accessToken));
-      navigate('/');
-
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  const { email, setEmail, password, setPassword, handleSignup } = useAuth();
 
   return (
     <div>
@@ -42,7 +21,7 @@ const Signup = () => {
                     <h2 className="fw-bold mb-2 text-uppercase">Registrarse</h2>
                     <p className="text-white-50 mb-5">Por favor ingrese su correo y contraseña!</p>
 
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleSignup}>
                       <div data-mdb-input-init className="form-outline form-white mb-4">
                       <MDBInput 
                         type='email'
